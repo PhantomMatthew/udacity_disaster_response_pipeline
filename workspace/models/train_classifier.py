@@ -15,6 +15,8 @@ from sqlalchemy import create_engine
 def load_data(database_filepath):
     '''
     To load data
+    Input data from SQLite database
+    Output features and label
     '''
     table_name = 'DisasterMessages2'
     engine = create_engine(f"sqlite:///{database_filepath}")
@@ -27,6 +29,8 @@ def load_data(database_filepath):
 def tokenize(text):
     '''
     To tokenize the text messages
+    Input text
+    Ouput the clean tokenized text
     '''
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
@@ -40,6 +44,7 @@ def tokenize(text):
 def build_model():
     '''
     To build model
+    Output grid searched model
     '''
     pipeline = Pipeline([
         ('vect', CountVectorizer()),
@@ -56,6 +61,9 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    To print out the accuracy scores
+    '''
     y_pred = model.predict(X_test)
     print(classification_report(y_pred, Y_test.values, target_names=category_names))
     # print raw accuracy score 
@@ -63,6 +71,9 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    '''
+    To save model to pickle file format
+    '''
     pickle.dump(model, open(model_filepath, 'wb'))
 
 

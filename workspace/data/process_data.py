@@ -14,6 +14,9 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    '''
+    To clean the dataframe
+    '''
     categories = df.categories.str.split(';', expand = True)
     row = categories.loc[0]
     
@@ -33,6 +36,9 @@ def clean_data(df):
 
 
 def save_data(df, database_filepath):
+    '''
+    To save the data to SQLite database
+    '''
     engine = create_engine('sqlite:///' + database_filepath)
     df.to_sql('DisasterMessages2', engine, index=False)  
 
