@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bf3982e5-5c95-4f11-9b4d-db35c55dbab6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/udacity_disaster_response_pipeline.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/app/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/app/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/data/DisasterResponse.db" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/data/DisasterResponse.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/data/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/data/process_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/models/train_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/models/train_classifier.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="86eb6419-47bd-422a-b041-a395b8fe75ca" />
+  <component name="ProjectId" id="1fu47ylymaurUqNshQVXCQusQe8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf3982e5-5c95-4f11-9b4d-db35c55dbab6" name="Default Changelist" comment="" />
+      <created>1597054480099</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597054480099</updated>
+      <workItem from="1597054481288" duration="250000" />
+      <workItem from="1597059594467" duration="452000" />
+      <workItem from="1597066908747" duration="10000" />
+      <workItem from="1597067302934" duration="3915000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="397" y="188" key="SettingsEditor" timestamp="1597054522000">
+      <screen x="0" y="23" width="1792" height="1053" />
+    </state>
+    <state x="397" y="188" key="SettingsEditor/0.23.1792.1053@0.23.1792.1053" timestamp="1597054522000" />
+    <state x="945" y="327" width="670" height="676" key="search.everywhere.popup" timestamp="1597068267520">
+      <screen x="0" y="23" width="2560" height="1356" />
+    </state>
+    <state x="945" y="327" width="670" height="676" key="search.everywhere.popup/2560.23.2560.1417/0.23.2560.1356@0.23.2560.1356" timestamp="1597068267520" />
+  </component>
+</project>

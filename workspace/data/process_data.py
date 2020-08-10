@@ -6,6 +6,13 @@ from sqlalchemy import create_engine
 def load_data(messages_filepath, categories_filepath):
     '''
     load data and merge dateframes
+
+    Args:
+        param1: message csv file path
+        param2: category csv file path
+
+    Returns:
+        return the merged dateframe
     '''
     messages = pd.read_csv(messages_filepath) #load messages data from csv
     categories = pd.read_csv(categories_filepath) #load categories data from csv
@@ -16,6 +23,12 @@ def load_data(messages_filepath, categories_filepath):
 def clean_data(df):
     '''
     To clean the dataframe
+
+    Args:
+        params: dateframe need to clean
+
+    Returns:
+        return the cleaned dateframe
     '''
     categories = df.categories.str.split(';', expand = True)
     row = categories.loc[0]
@@ -38,6 +51,13 @@ def clean_data(df):
 def save_data(df, database_filepath):
     '''
     To save the data to SQLite database
+
+    Args:
+        params: dataframe need to save
+        params: SQLite database full path
+
+    Returns:
+        None
     '''
     engine = create_engine('sqlite:///' + database_filepath)
     df.to_sql('DisasterMessages2', engine, index=False)  

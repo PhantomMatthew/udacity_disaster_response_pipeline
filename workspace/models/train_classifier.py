@@ -1,3 +1,4 @@
+import re
 import sys, pickle
 import pandas as pd
 import numpy as np
@@ -15,8 +16,12 @@ from sqlalchemy import create_engine
 def load_data(database_filepath):
     '''
     To load data
-    Input data from SQLite database
-    Output features and label
+
+    Args:
+        params: database full path
+
+    Returns:
+        Features, label, category_names
     '''
     table_name = 'DisasterMessages2'
     engine = create_engine(f"sqlite:///{database_filepath}")
@@ -29,9 +34,13 @@ def load_data(database_filepath):
 def tokenize(text):
     '''
     To tokenize the text messages
-    Input text
-    Ouput the clean tokenized text
+    Args:
+        params: text need to tokenize
+    Returns:
+        return cleaned tokens
     '''
+    # remove special characters and lowercase
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
     clean_tokens = []
@@ -44,7 +53,11 @@ def tokenize(text):
 def build_model():
     '''
     To build model
-    Output grid searched model
+    Args:
+        None
+
+    Returns:
+        return grid searched model
     '''
     pipeline = Pipeline([
         ('vect', CountVectorizer()),
@@ -63,6 +76,15 @@ def build_model():
 def evaluate_model(model, X_test, Y_test, category_names):
     '''
     To print out the accuracy scores
+
+    Args:
+        params1: model to evaluate
+        params2: Test set
+        params3: Test prediction vector
+        params4: category names
+
+    Returns:
+        None
     '''
     y_pred = model.predict(X_test)
     print(classification_report(y_pred, Y_test.values, target_names=category_names))
@@ -73,6 +95,10 @@ def evaluate_model(model, X_test, Y_test, category_names):
 def save_model(model, model_filepath):
     '''
     To save model to pickle file format
+
+    Args:
+        params1: model to save
+        params2: model saved full path
     '''
     pickle.dump(model, open(model_filepath, 'wb'))
 

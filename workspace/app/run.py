@@ -10,6 +10,7 @@ from flask import render_template, request, jsonify
 from plotly.graph_objs import Bar
 from sklearn.externals import joblib
 from sqlalchemy import create_engine
+from nltk.corpus import stopwords
 
 
 app = Flask(__name__)
@@ -19,9 +20,9 @@ def tokenize(text):
     lemmatizer = WordNetLemmatizer()
 
     clean_tokens = []
-    for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
+    for token in tokens:
+        clean_token = lemmatizer.lemmatize(token).lower().strip()
+        clean_tokens.append(clean_token)
 
     return clean_tokens
 
@@ -42,15 +43,25 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    
+
+    # Messages by Category
+    message_counts = df.iloc[:, 4:].sum().sort_values()
+    message_names = list(message_counts.index)
+
+    # Top 10 words
+    all_words = pd.Series(' '.join(df['message']).lower().split())
+    stop_words = set(stopwords.words('english'))
+    top_words = all_words[~all_words.isin(stop_words)].value_counts()[:10]
+    top_words_names = list(top_words.index)
+
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
             'data': [
                 Bar(
-                    x=genre_names,
-                    y=genre_counts
+                    x = genre_names,
+                    y = genre_counts
                 )
             ],
 
@@ -61,6 +72,44 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x = message_counts,
+                    y = message_names,
+                    orientation = 'h',
+
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+
+                'xaxis': {
+                    'title': "Number of Messages"
+
+                },
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x = top_words_names,
+                    y = top_words
+                )
+            ],
+
+            'layout': {
+                'title': 'Top 10 used words',
+                'yaxis': {
+                    'title': "words count",
+                    'automargin': True
+                },
+                'xaxis': {
+                    'title': "words"
                 }
             }
         }
